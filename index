@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sofía García Books</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --vino:#8f4c5c;
+    --vino-oscuro:#6e3845;
+    --rosa-claro:#f6f0f2;
+    --blanco:#ffffff;
+    --gris:#e9e3e5;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter', sans-serif;
+    background:var(--rosa-claro);
+    color:#333;
+}
+
+/* HEADER */
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 40px;
+    background:white;
+}
+
+.logo{
+    font-family:'Playfair Display', serif;
+    font-size:24px;
+    color:var(--vino);
+}
+
+nav a{
+    margin-left:20px;
+    text-decoration:none;
+    color:var(--vino);
+    font-weight:500;
+}
+
+/* HERO */
+.hero{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:80px 40px;
+    background:linear-gradient(to right, var(--vino), var(--vino-oscuro));
+    color:white;
+}
+
+.hero-text{
+    max-width:50%;
+}
+
+.hero h1{
+    font-family:'Playfair Display', serif;
+    font-size:40px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    margin-bottom:30px;
+}
+
+button{
+    padding:12px 25px;
+    border-radius:30px;
+    border:none;
+    cursor:pointer;
+    font-weight:500;
+    margin-right:10px;
+}
+
+.btn-primary{
+    background:white;
+    color:var(--vino);
+}
+
+.btn-outline{
+    background:transparent;
+    border:2px solid white;
+    color:white;
+}
+
+.hero img{
+    width:260px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* LIBRO DESTACADO */
+.section{
+    padding:60px 40px;
+}
+
+.book-feature{
+    display:flex;
+    gap:40px;
+    align-items:center;
+}
+
+.book-feature img{
+    width:220px;
+    border-radius:12px;
+}
+
+.rating{
+    color:#f5b50a;
+    margin:10px 0;
+}
+
+/* RESEÑAS */
+.reviews{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.review-card{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    width:300px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* FOOTER */
+footer{
+    background:var(--vino);
+    color:white;
+    padding:20px;
+    text-align:center;
+    margin-top:40px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Sofía García Books</div>
+    <nav>
+        <a href="#">Inicio</a>
+        <a href="#">Libros</a>
+        <a href="#">Reseñas</a>
+        <a href="#">Sobre la autora</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-text">
+        <h1>Descubre una historia de amor donde el trabajo en equipo lo cambia todo.</h1>
+        <p>Una joven llamada Isabel con sueños grandes conoce a un chico auténtico llamado Michel que la apoya siempre.</p>
+        <button class="btn-primary" onclick="comprar()">Comprar ahora</button>
+        <button class="btn-outline" onclick="verMas()">Leer más</button>
+    </div>
+
+    <!-- CAMBIA ESTA IMAGEN POR TU PORTADA -->
+    <img src="portada.jpg" alt="The Boy Behind My Dresses">
+</section>
+
+<section class="section">
+    <h2>Libro destacado</h2>
+    <div class="book-feature">
+        <img src="portada.jpg" alt="">
+        <div>
+            <h3>The Boy Behind My Dresses</h3>
+            <p>Sinopsis corta: Una joven llamada Isabel con sueños grandes conoce a un chico auténtico llamado Michel.</p>
+            <div class="rating">★★★★★ (128 reseñas)</div>
+            <button class="btn-primary" onclick="comprar()">Comprar ahora</button>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <h2>Reseñas destacadas</h2>
+    <div class="reviews">
+        <div class="review-card">
+            <strong>María G.</strong>
+            <div class="rating">★★★★★</div>
+            <p>Una historia hermosa y muy inspiradora.</p>
+        </div>
+
+        <div class="review-card">
+            <strong>Ana L.</strong>
+            <div class="rating">★★★★★</div>
+            <p>Los personajes son reales y la trama te atrapa.</p>
+        </div>
+
+        <div class="review-card">
+            <strong>Lucía R.</strong>
+            <div class="rating">★★★★★</div>
+            <p>Me hizo reír, llorar y creer en el amor verdadero.</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2026 Sofía García Books. Todos los derechos reservados.
+</footer>
+
+<script>
+function comprar(){
+    alert("Aquí conectaremos Stripe para el pago.");
+}
+
+function verMas(){
+    alert("Aquí puedes abrir una página con más detalles del libro.");
+}
+</script>
+
+</body>
+</html>

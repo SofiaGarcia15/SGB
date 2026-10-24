@@ -1,0 +1,80 @@
+﻿{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "blog": {
+      "posts": {
+        ".read": true,
+        ".write": "auth != null && auth.token.email == 'anasofiaglb@gmail.com'"
+      },
+      "comments": {
+        ".read": true,
+        "$postId": {
+          "$commentId": {
+            ".write": "auth != null && newData.child('userId').val() == auth.uid"
+          }
+        }
+      },
+      "likes": {
+        ".read": true,
+        "$postId": {
+          "$uid": {
+            ".write": "auth != null && $uid == auth.uid"
+          }
+        }
+      },
+      "stars": {
+        ".read": true,
+        "$postId": {
+          "$uid": {
+            ".write": "auth != null && $uid == auth.uid"
+          }
+        }
+      }
+    },
+    "reviews": {
+      "books": {
+        "$bookId": {
+          ".read": true,
+          "$reviewId": {
+            ".write": "auth != null && newData.child('userId').val() == auth.uid"
+          }
+        }
+      }
+    },
+    "ratings": {
+      "books": {
+        "$bookId": {
+          ".read": true,
+          "$uid": {
+            ".write": "auth != null && $uid == auth.uid"
+          }
+        }
+      }
+    },
+    "chapters": {
+      "$bookId": {
+        ".read": "auth != null && (auth.token.email == 'anasofiaglb@gmail.com' || root.child('users').child(auth.uid).child('purchasedBooks').child($bookId).exists())",
+        ".write": "auth != null && auth.token.email == 'anasofiaglb@gmail.com'"
+      }
+    },
+    "users": {
+      "$uid": {
+        ".read": "auth != null && $uid == auth.uid",
+        "profile": {
+          ".write": "auth != null && $uid == auth.uid"
+        },
+        "favorites": {
+          ".write": "auth != null && $uid == auth.uid"
+        },
+        "readingProgress": {
+          ".write": "auth != null && $uid == auth.uid"
+        },
+        "purchasedBooks": {
+          ".write": false
+        }
+      }
+    }
+  }
+}
+
